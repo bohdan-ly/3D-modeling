@@ -1,0 +1,36 @@
+/node_modules
+/plugins
+/prepare
+/platforms/browser
+/platforms/android/*
+/platforms/ios/*
+/platforms/ios/chatway/*
+!/platforms/ios/chatway/chatway-Info.plist
+/platforms/android/CordovaLib/*
+!/platforms/android/CordovaLib/src
+/platforms/android/AndroidManifest.xml
+/electron/www/*
+/www
+/dist
+
+# Yarn
+.yarn-integrity
+yarn.lock
+yarn*
+
+# Lock files
+package-lock.json
+./package-lock.json
+
+# Optional eslint cache
+.eslintcache
+.eslintrc
+
+# Code editors
+.vscode
+.idea
+.DS_Store
+
+# Stats 
+stats.json
+bundle_stats.json
