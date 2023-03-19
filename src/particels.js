@@ -30,7 +30,7 @@ const particleAlphaTexture = textureLoader.load('/textures/particles/10.png');
 
 const particleGeometry = new THREE.BufferGeometry();
 
-const count = 2;
+const count = 500;
 const positionsArray = new Float32Array(count * 3);
 const colorsArray = new Float32Array(count * 3);
 
@@ -47,9 +47,9 @@ particleGeometry.setAttribute('color', colorsAttrs);
 
 // Material
 const particleMaterial = new THREE.PointsMaterial({
-  size: 0.1,
+  size: 10,
   sizeAttenuation: true,
-  // color: '#9436ff',
+  color: '#ff0010',
   alphaMap: particleAlphaTexture,
   // alphaTest: 0.001,
   // depthTest: false,
@@ -116,8 +116,8 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   // Particles animation
-  // particles.rotation.x = Math.cos(elapsedTime * 0.1) * 4;
-  // particles.position.z = Math.sin(elapsedTime * 0.1) * 4;
+  particles.rotation.x = Math.cos(elapsedTime * 0.1) * 4;
+  particles.position.z = Math.sin(elapsedTime * 0.1) * 4;
 
   // for (let i = 0; i < count; i++) {
   //   const i3 = i * 3;
@@ -125,7 +125,7 @@ const tick = () => {
   //   particleGeometry.attributes.position.array[i3 + 1] = Math.sin(elapsedTime + x);
   // }
 
-  // particleGeometry.attributes.position.needsUpdate = true;
+  particleGeometry.attributes.position.needsUpdate = true;
 
   // Update controls
   controls.update();
