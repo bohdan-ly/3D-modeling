@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
     margin: 0;
     padding: 0;
@@ -38,4 +42,73 @@ body {
 
 section:nth-child(odd) {
     justify-content: flex-end;
+}
+
+.loading-bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(0);
+    transform-origin: top left;
+    height: 3px;
+    width: 90%;
+    background: rgb(19, 244, 128);
+    border-radius: 10px;
+    transition: transform 0.5s ease-in;
+    will-change: transform;
+}
+
+.loading-bar.ended {
+    transform-origin: top right;
+    transition: transform 1.5s ease-in-out;
+}
+
+.point {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.point:hover .text {
+    opacity: 1;
+}
+
+.point .label {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    line-height: 40px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    font-size: 14px;
+    font-weight: 100;
+    cursor: help;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.point.visible .label {
+    transform: scale(1);
+}
+
+.point .text {
+    position: absolute;
+    left: -100px;
+    width: 200px;
+    top: 50px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    line-height: 1.3em;
+    border-radius: 5px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    font-size: 14px;
+    font-weight: 100;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
 }
